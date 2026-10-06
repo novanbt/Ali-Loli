@@ -128,7 +128,233 @@
     };
   </script>
 
-  <!-- Custom Enhanced CSS -->
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+
+  <!-- Inlined Critical CSS for Fail-Safe Static Rendering -->
+  <style>
+/* Custom Styles & Dynamic Animations for Ali Ioli */
+:root {
+  --primary: #9f3c16;
+  --primary-hover: #a13d3b;
+  --primary-fixed: #ffdbcf;
+  --on-primary: #ffffff;
+  --surface: #fff8f4;
+  --surface-container: #f3ede9;
+  --surface-container-low: #f9f2ee;
+  --surface-container-high: #ede7e3;
+  --on-surface: #1d1b19;
+  --on-surface-variant: #57423b;
+  --secondary: #a13d3b;
+  --tertiary: #526046;
+  --tertiary-fixed: #d8e8c6;
+  --inverse-surface: #32302e;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f9f2ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #dec0b7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9f3c16;
+}
+
+/* Smooth Scrolling & Typography */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--on-surface);
+  background-color: var(--surface);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-serif-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(14deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(159, 60, 22, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(159, 60, 22, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.floating-stamp {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Glassmorphism & Header */
+.header-scrolled {
+  background-color: rgba(255, 248, 244, 0.96) !important;
+  box-shadow: 0 4px 20px rgba(26, 24, 22, 0.08) !important;
+}
+
+/* Nav Active Link */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary) !important;
+  font-weight: 700;
+}
+
+/* Card Hover Elevation */
+.dish-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dish-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(26, 24, 22, 0.09);
+}
+
+/* Image Zoom */
+.img-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.06);
+}
+
+/* Modal Overlay & Dialog */
+.modal-overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Mobile Drawer */
+#mobile-drawer {
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-drawer.open {
+  transform: translateX(0);
+}
+
+/* Back to Top Button */
+#back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+#lightbox {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+#lightbox.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Toast Notification */
+#toast {
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+  </style>
   <link href="styles.css" rel="stylesheet"/>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -1138,7 +1364,7 @@
   <!-- ================= INTERACTIVE MODALS ================= -->
 
   <!-- 1. Reservation Confirmation Voucher Modal -->
-  <div aria-modal="true" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" id="confirmation-modal" role="dialog">
+  <div aria-modal="true" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden" id="confirmation-modal" role="dialog">
     <div class="modal-content w-full max-w-lg bg-surface rounded-3xl overflow-hidden shadow-2xl border border-surface-container">
       <div class="p-6 sm:p-8 bg-gradient-to-br from-primary to-secondary text-on-primary text-center relative">
         <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto mb-3">
@@ -1189,7 +1415,7 @@
   </div>
 
   <!-- 2. Full Categorized Menu Modal -->
-  <div aria-modal="true" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" id="full-menu-modal" role="dialog">
+  <div aria-modal="true" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden" id="full-menu-modal" role="dialog">
     <div class="modal-content w-full max-w-3xl max-h-[90vh] bg-surface rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-surface-container">
       <div class="p-6 bg-surface-container-high border-b border-surface-container flex items-center justify-between">
         <div>
@@ -1344,7 +1570,7 @@
   </div>
 
   <!-- 3. Full-Screen Photo Lightbox Modal -->
-  <div aria-modal="true" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 bg-black/90 backdrop-blur-md" id="lightbox" role="dialog">
+  <div aria-modal="true" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden" id="lightbox" role="dialog">
     <button aria-label="Close Lightbox" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors" id="close-lightbox" type="button">
       <span class="material-symbols-outlined text-2xl">close</span>
     </button>
@@ -1360,12 +1586,340 @@
   </button>
 
   <!-- 5. Toast Notification Component -->
-  <div class="fixed bottom-6 left-6 z-50 max-w-sm bg-inverse-surface text-inverse-on-surface px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-surface/20" id="toast">
+  <div class="fixed bottom-6 left-6 z-50 max-w-sm bg-inverse-surface text-inverse-on-surface px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-surface/20 hidden" id="toast">
     <span class="material-symbols-outlined text-primary-fixed">info</span>
     <span class="font-body-sm text-body-sm font-medium" id="toast-msg">Notification message</span>
   </div>
 
-  <!-- Main JavaScript Controller -->
+  
+  <!-- Inlined Application Controller -->
+  <script>
+// Ali Ioli Spanish Restaurant - Interactive Controller
+if (window.__ALI_IOLI_INIT) {
+  // Already initialized
+} else {
+  window.__ALI_IOLI_INIT = true;
+  document.addEventListener('DOMContentLoaded', () => {
+  // 1. Header scroll listener
+  const header = document.querySelector('header');
+  const backToTop = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header?.classList.add('header-scrolled');
+    } else {
+      header?.classList.remove('header-scrolled');
+    }
+
+    if (window.scrollY > 400) {
+      backToTop?.classList.add('visible');
+    } else {
+      backToTop?.classList.remove('visible');
+    }
+
+    updateScrollSpy();
+  });
+
+  // 2. Scroll Spy for active navigation links
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-drawer a[href^="#"]');
+
+  function updateScrollSpy() {
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active', 'text-primary');
+            link.classList.remove('text-on-surface-variant');
+          } else {
+            link.classList.remove('active', 'text-primary');
+            if (!link.classList.contains('bg-primary')) {
+              link.classList.add('text-on-surface-variant');
+            }
+          }
+        });
+      }
+    });
+  }
+
+  // 3. Mobile Navigation Drawer
+  const mobileToggleBtn = document.getElementById('mobile-menu-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const mobileNavLinks = document.querySelectorAll('#mobile-drawer a');
+
+  function openMobileMenu() {
+    mobileDrawer?.classList.add('open');
+    mobileOverlay?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileDrawer?.classList.remove('open');
+    mobileOverlay?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggleBtn?.addEventListener('click', openMobileMenu);
+  mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+  mobileOverlay?.addEventListener('click', closeMobileMenu);
+  mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+  // 4. Menu Category Filtering
+  const filterButtons = document.querySelectorAll('.menu-filter-btn');
+  const dishCards = document.querySelectorAll('.dish-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Toggle button active styling
+      filterButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      btn.classList.remove('text-on-surface-variant');
+
+      const filter = btn.getAttribute('data-filter');
+
+      dishCards.forEach(card => {
+        const categories = (card.getAttribute('data-category') || '').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
+          card.style.display = 'flex';
+          card.classList.add('animate-fade-in');
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('animate-fade-in');
+        }
+      });
+    });
+  });
+
+  // 5. Reservation Form Controls
+  let selectedPartySize = '2 Guests';
+  let selectedTimeSlot = '19:15';
+  let selectedSeating = 'Main Dining Room';
+
+  // Party Size Buttons
+  const partyButtons = document.querySelectorAll('#party-size-group button');
+  partyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      partyButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('bg-surface', 'text-on-surface');
+      });
+      this.classList.remove('bg-surface', 'text-on-surface');
+      this.classList.add('bg-primary', 'text-on-primary');
+      selectedPartySize = this.textContent.trim();
+    });
+  });
+
+  // Date Quick Selector Buttons
+  const dateInput = document.getElementById('reservation-date');
+  const dateQuickButtons = document.querySelectorAll('.date-quick-btn');
+
+  function formatDate(d) {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  // Set default min date to today
+  const today = new Date();
+  if (dateInput) {
+    dateInput.min = formatDate(today);
+    dateInput.value = formatDate(today);
+  }
+
+  dateQuickButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const offset = this.getAttribute('data-date-offset');
+      const targetDate = new Date();
+      if (offset === 'today') {
+        // Today
+      } else if (offset === 'tomorrow') {
+        targetDate.setDate(targetDate.getDate() + 1);
+      } else if (offset === 'friday') {
+        const day = targetDate.getDay();
+        const diff = (5 + 7 - day) % 7 || 7;
+        targetDate.setDate(targetDate.getDate() + diff);
+      } else if (offset === 'saturday') {
+        const day = targetDate.getDay();
+        const diff = (6 + 7 - day) % 7 || 7;
+        targetDate.setDate(targetDate.getDate() + diff);
+      }
+      if (dateInput) {
+        dateInput.value = formatDate(targetDate);
+      }
+      dateQuickButtons.forEach(b => b.classList.remove('bg-primary-fixed', 'text-on-primary-fixed', 'font-semibold'));
+      this.classList.add('bg-primary-fixed', 'text-on-primary-fixed', 'font-semibold');
+    });
+  });
+
+  // Time Slot Selection
+  const timeSlotButtons = document.querySelectorAll('#time-slots button');
+  timeSlotButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      timeSlotButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('bg-surface', 'text-on-surface');
+      });
+      this.classList.remove('bg-surface', 'text-on-surface');
+      this.classList.add('bg-primary', 'text-on-primary');
+      selectedTimeSlot = this.textContent.trim();
+    });
+  });
+
+  // Seating radio change
+  const seatingInputs = document.querySelectorAll('input[name="area"]');
+  seatingInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      if (this.checked) {
+        selectedSeating = this.value;
+      }
+    });
+  });
+
+  // Form submission & custom confirmation voucher modal
+  const reservationForm = document.getElementById('reservation-form');
+  const confirmModal = document.getElementById('confirmation-modal');
+  const closeConfirmModalBtn = document.getElementById('close-confirm-modal');
+
+  reservationForm?.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('guest-name')?.value || 'Valued Guest';
+    const phone = document.getElementById('guest-phone')?.value || 'Not provided';
+    const dateVal = dateInput?.value || formatDate(new Date());
+
+    // Generate random booking reference
+    const refCode = 'AI-' + Math.floor(100000 + Math.random() * 900000);
+
+    // Populate modal
+    document.getElementById('modal-ref').textContent = refCode;
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-phone').textContent = phone;
+    document.getElementById('modal-party').textContent = selectedPartySize;
+    document.getElementById('modal-date').textContent = new Date(dateVal + 'T00:00:00').toLocaleDateString('en-GB', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    document.getElementById('modal-time').textContent = selectedTimeSlot;
+    document.getElementById('modal-seating').textContent = selectedSeating;
+
+    // Show modal
+    confirmModal?.classList.remove('hidden');
+    requestAnimationFrame(() => confirmModal?.classList.add('open'));
+    showToast('Reservation request confirmed!');
+  });
+
+  closeConfirmModalBtn?.addEventListener('click', () => {
+    confirmModal?.classList.remove('open');
+    setTimeout(() => confirmModal?.classList.add('hidden'), 300);
+  });
+
+  // 6. Complete Menu Modal
+  const menuModal = document.getElementById('full-menu-modal');
+  const openMenuModalBtn = document.getElementById('open-menu-modal-btn');
+  const closeMenuModalBtn = document.getElementById('close-menu-modal');
+
+  openMenuModalBtn?.addEventListener('click', () => {
+    menuModal?.classList.remove('hidden');
+    requestAnimationFrame(() => menuModal?.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeMenuModalBtn?.addEventListener('click', () => {
+    menuModal?.classList.remove('open');
+    setTimeout(() => menuModal?.classList.add('hidden'), 300);
+    document.body.style.overflow = '';
+  });
+
+  // 7. Lightbox for Gallery
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeLightboxBtn = document.getElementById('close-lightbox');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      const caption = item.querySelector('p')?.textContent || img?.alt || 'Ali Ioli Experience';
+      if (img && lightboxImg && lightboxCaption) {
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = caption;
+        lightbox?.classList.remove('hidden');
+        requestAnimationFrame(() => lightbox?.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox?.classList.remove('open');
+    setTimeout(() => lightbox?.classList.add('hidden'), 300);
+    document.body.style.overflow = '';
+  }
+
+  closeLightboxBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Close modals on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      confirmModal?.classList.remove('open');
+      setTimeout(() => confirmModal?.classList.add('hidden'), 300);
+      menuModal?.classList.remove('open');
+      setTimeout(() => menuModal?.classList.add('hidden'), 300);
+      closeLightbox();
+      closeMobileMenu();
+      document.body.style.overflow = '';
+    }
+  });
+
+  // 8. Back to Top Click
+  backToTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 9. Toast Notification Helper
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-msg');
+    if (toast && toastMsg) {
+      toastMsg.textContent = message;
+      toast.classList.remove('hidden');
+      requestAnimationFrame(() => toast.classList.add('show'));
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.classList.add('hidden'), 300);
+      }, 4000);
+    }
+  }
+
+  // Quick Book a Table from Nav / Hero links
+  document.querySelectorAll('a[href="#reservations"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const nameInput = document.getElementById('guest-name');
+      setTimeout(() => {
+        nameInput?.focus();
+      }, 600);
+    });
+  });
+});
+}
+
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

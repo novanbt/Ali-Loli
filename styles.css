@@ -146,12 +146,14 @@ h1, h2, h3, .font-serif-display {
 .modal-overlay {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -191,22 +193,26 @@ h1, h2, h3, .font-serif-display {
 #lightbox {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: all 0.3s ease;
 }
 
 #lightbox.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* Toast Notification */
 #toast {
   transform: translateY(100px);
   opacity: 0;
+  pointer-events: none;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
 #toast.show {
   transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
 }

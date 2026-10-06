@@ -1,5 +1,9 @@
 // Ali Ioli Spanish Restaurant - Interactive Controller
-document.addEventListener('DOMContentLoaded', () => {
+if (window.__ALI_IOLI_INIT) {
+  // Already initialized
+} else {
+  window.__ALI_IOLI_INIT = true;
+  document.addEventListener('DOMContentLoaded', () => {
   // 1. Header scroll listener
   const header = document.querySelector('header');
   const backToTop = document.getElementById('back-to-top');
@@ -215,12 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modal-seating').textContent = selectedSeating;
 
     // Show modal
-    confirmModal?.classList.add('open');
+    confirmModal?.classList.remove('hidden');
+    requestAnimationFrame(() => confirmModal?.classList.add('open'));
     showToast('Reservation request confirmed!');
   });
 
   closeConfirmModalBtn?.addEventListener('click', () => {
     confirmModal?.classList.remove('open');
+    setTimeout(() => confirmModal?.classList.add('hidden'), 300);
   });
 
   // 6. Complete Menu Modal
@@ -229,12 +235,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMenuModalBtn = document.getElementById('close-menu-modal');
 
   openMenuModalBtn?.addEventListener('click', () => {
-    menuModal?.classList.add('open');
+    menuModal?.classList.remove('hidden');
+    requestAnimationFrame(() => menuModal?.classList.add('open'));
     document.body.style.overflow = 'hidden';
   });
 
   closeMenuModalBtn?.addEventListener('click', () => {
     menuModal?.classList.remove('open');
+    setTimeout(() => menuModal?.classList.add('hidden'), 300);
     document.body.style.overflow = '';
   });
 
@@ -252,7 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img && lightboxImg && lightboxCaption) {
         lightboxImg.src = img.src;
         lightboxCaption.textContent = caption;
-        lightbox?.classList.add('open');
+        lightbox?.classList.remove('hidden');
+        requestAnimationFrame(() => lightbox?.classList.add('open'));
         document.body.style.overflow = 'hidden';
       }
     });
@@ -260,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeLightbox() {
     lightbox?.classList.remove('open');
+    setTimeout(() => lightbox?.classList.add('hidden'), 300);
     document.body.style.overflow = '';
   }
 
@@ -272,7 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       confirmModal?.classList.remove('open');
+      setTimeout(() => confirmModal?.classList.add('hidden'), 300);
       menuModal?.classList.remove('open');
+      setTimeout(() => menuModal?.classList.add('hidden'), 300);
       closeLightbox();
       closeMobileMenu();
       document.body.style.overflow = '';
@@ -290,9 +302,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastMsg = document.getElementById('toast-msg');
     if (toast && toastMsg) {
       toastMsg.textContent = message;
-      toast.classList.add('show');
+      toast.classList.remove('hidden');
+      requestAnimationFrame(() => toast.classList.add('show'));
       setTimeout(() => {
         toast.classList.remove('show');
+        setTimeout(() => toast.classList.add('hidden'), 300);
       }, 4000);
     }
   }
@@ -307,3 +321,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+}
