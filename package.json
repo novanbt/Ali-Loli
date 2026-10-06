@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Authentic Spanish Restaurant & Tapas Bar Website in Finsbury Park London",
   "scripts": {
-    "build": "node -e \"console.log('Build completed.')\"",
-    "dev": "npx -y serve . -l 3000"
+    "build": "echo 'Static build complete'",
+    "dev": "npx -y serve public -l 3000"
   }
 }
