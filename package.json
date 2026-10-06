@@ -1,0 +1,20 @@
+{
+  "name": "ali-ioli-restaurant",
+  "version": "1.0.0",
+  "description": "Authentic Spanish Restaurant & Tapas Bar Website in Finsbury Park London",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve . -l 3000",
+    "dev": "npx -y serve . -l 3000"
+  },
+  "keywords": [
+    "spanish",
+    "restaurant",
+    "tapas",
+    "london",
+    "finsbury-park",
+    "ali-ioli"
+  ],
+  "author": "Ali Ioli Ltd",
+  "license": "ISC"
+}
